@@ -1,0 +1,101 @@
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Fogroom/refs/heads/main/Spawnwnw"))()
+---====== Create entity ======---
+
+local entity = spawner.Create({
+	Entity = {
+		Name = "Bloppies",
+		Asset = "rbxassetid://107837320529598",
+		HeightOffset = 0.5
+	},
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 3
+		},
+		Shatter = true,
+		Repair = false
+	},
+	Earthquake = {
+		Enabled = false
+	},
+	CameraShake = {
+		Enabled = true,
+		Range = 90,
+		Values = {15.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
+	},
+	Movement = {
+		Speed = 700,
+		Delay = 6,
+		Reversed = false
+	},
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush",
+		Min = 6,
+		Max = 6,
+		Delay = 0.8
+	},
+	Damage = {
+		Enabled = true,
+		Range = 70,
+		Amount = 100
+	},
+	Crucifixion = {
+		Enabled = true,
+		Range = 85,
+		Resist = false,
+		Break = true
+	},
+	Death = {
+		Type = "Guiding", -- "Curious"
+		Hints = {"Death", "Hints", "Go", "Here"},
+		Cause = ""
+	}
+})
+
+---====== Debug entity ======---
+
+entity:SetCallback("OnSpawned", function()
+    print("Entity has spawned")
+end)
+
+entity:SetCallback("OnEnterRoom", function(room, firstTime)
+    if firstTime == true then
+        print("Entity has entered room: ".. room.Name.. " for the first time")
+    else
+        print("Entity has entered room: ".. room.Name.. " again")
+end
+end)
+
+entity:SetCallback("OnLookAt", function(lineOfSight)
+		print("Player is looking at entity")
+end)
+
+entity:SetCallback("OnRebounding", function(startOfRebound)
+end)
+
+entity:SetCallback("OnDespawning", function()
+    print("Entity is despawning")
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+---====== Display achievement ======---
+achievementGiver({
+    Title = "Smiling Is Better",
+    Desc = "Why you hide?",
+    Reason = "Survival From Bloopies",
+    Image = "rbxassetid://140025774897017"
+})
+end)
+
+entity:SetCallback("OnDamagePlayer", function(newHealth)
+	if newHealth == 0 then
+		print("Entity has killed the player")
+	else
+		print("Entity has damaged the player")
+end
+game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Bloopies"
+end)
+
+---====== Run entity ======---
+
+entity:Run()
