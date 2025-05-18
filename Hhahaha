@@ -82,8 +82,8 @@ local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.
 achievementGiver({
     Title = "Smiling Is Better",
     Desc = "Why you hide?",
-    Reason = "Survival From Bloopies",
-    Image = "rbxassetid://140025774897017"
+    Reason = "Survival From Boppies",
+    Image = "rbxassetid://115491907195141"
 })
 end)
 
