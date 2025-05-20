@@ -144,7 +144,7 @@ local shadow = game:GetObjects("rbxassetid://11503625408")[1]
 			shadow.Visible = false;
 			shadow.Jumpscare:Stop()
 end
-game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Bloppies"
+game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Boppies"
 end)
 
 ---====== Run entity ======---
