@@ -1,0 +1,84 @@
+local Spawner = loadstring(game:HttpGet('https://raw.githubusercontent.com/MuhXd/DoorSuff/main/OtherSuff/DoorEntitySpawn%2BSource'))()
+
+local entity = Spawner.createEntity({
+    CustomName = "???", -- Custom name of your entity
+    Model = "rbxassetid://131333857143246", -- Can be GitHub file or rbxassetid
+    Speed = 120, -- Percentage, 100 = default Rush speed
+    DelayTime = 6.5, -- Time before starting cycles (seconds)
+    HeightOffset = 0.3,
+    CanKill = true,
+    NoDieOnCrouching = false,
+    NoHiding = false,
+    AntiCrucifix = false,
+    KillRange = 65,
+    BackwardsMovement = true,
+    BreakLights = false,
+    FlickerLights = {
+        false, -- Enabled/Disabled
+        1, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 4,
+        Max = 4,
+        WaitTime = 0.7,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {10.5, 30, 1.1, 5}, -- Shake values (don't change if you don't know)
+        100, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        true, -- Enabled/Disabled
+        {
+            Image1 = "rbxassetid://11877292178", -- Image1 url
+            Image2 = "rbxassetid://11877292178", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                5263560896, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+				{ PlaybackSpeed = 0.5 },
+            },
+            Sound2 = {
+                5263560896, -- SoundId
+                { Volume = 0.5 }, -- Sound properties
+				{ PlaybackSpeed = 0.5 },
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                false, -- Enabled/Disabled
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    CustomDialog = {"H̷̡̡̧̻̼̺̖̫̰̥͚̳͎̣͓͕̼̜̆͐ͅ0̷͇̦̬̟̱̣̠̼̻̱̩̲͇̥̪̙͎̩̈́̌́̈́̓̀̿̍͜Ẃ̵̛̛̏͑̔̏̿͊͐̆̋̈͐̐͘͜"}, -- Custom death message
+})
+
+
+-----[[ Advanced ]]-----
+entity.Debug.OnEntitySpawned = function(entityModel)
+    print("Entity has spawned:", entityModel)
+end
+ 
+entity.Debug.OnEntityDespawned = function(entityModel)
+    print("Entity has despawned:", entityModel)
+end
+ 
+entity.Debug.OnEntityStartMoving = function(entityModel)
+    print("Entity has started moving:", entityModel)
+end
+ 
+entity.Debug.OnEntityFinishedRebound = function(entityModel)
+    print("Entity has finished rebound:", entityModel)
+end
+ 
+entity.Debug.OnDeath = function()
+game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "WH1T3"
+end
+------------------------------------
+
+-- Run the created entity
+Spawner.runEntity(entity)
