@@ -31,7 +31,7 @@ local function onTriggered3()
 	if clicknumber == 65 then
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Ok i'm done.",true)
 	paint1_1.Canvas.SurfaceGui.ImageLabel:Destroy()
-	loadstring(game:HttpGet(""))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Voor-Pr00/Bloopies/refs/heads/main/Hahaahentityfunny"))()
 	end
 if clicknumber >= 66 then
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("There is no painting.",true)
