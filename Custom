@@ -28,7 +28,7 @@ local function onTriggered3()
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Okay, this is what you got.",true)
 	game.Players.LocalPlayer.Character.Humanoid.Health -= 25
 	end
-	if clicknumber == 65 then
+	if clicknumber == 70 then
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("Ok i'm done.",true)
 	paint1_1.Canvas.SurfaceGui.ImageLabel:Destroy()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Voor-Pr00/Bloopies/refs/heads/main/Hahaahentityfunny"))()
