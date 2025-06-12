@@ -38,7 +38,7 @@ if clicknumber >= 76 then
 	require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("There is no painting.",true)
 end
 game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
-clicknumber == 0
+clicknumber = 0
 end
 --
 local function onTriggeredLisa()
@@ -54,6 +54,7 @@ if clicknumber == 3 then
 require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game).caption("You try to grab it.",true)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/penguinManiack/Crucifix/main/Crucifix.lua'))()
 cruxx:Destroy()
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 clicknumber == 0
 end
 end
